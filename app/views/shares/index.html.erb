@@ -1,0 +1,29 @@
+<h3>登録済みルーム一覧</h3>
+   <% if flash.notice %>
+      <p class="notice"><%= flash.notice %></p>
+    <% end %>
+    <table>
+      <thead>
+        <tr>
+          <th>ルームイメージ</th>
+          <th>ルーム名</th>
+          <th>ルーム紹介</th>
+          <th>料金</th>
+          <th>作成日</th>
+        </tr>
+      </thead>
+ 
+      <tbody>
+        <% @shares.each do |share| %>
+          <tr>
+            <td><%= image_tag share.room_image %></td>
+            <td><%= share.room_name %></td>
+            <td><%= share.room_introduction %></td>
+            <td><%= share.room_price %></td>
+            <td><%= share.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+ 
+    <p><%= link_to "ルーム新規登録", :new_share %></p>
